@@ -9,6 +9,10 @@ public class SmardtGUI
     private JTextField insertText;
     private JButton button;
     private JTextField displayText;
+    private JTextField x1Text;
+    private JTextField x2Text;
+    private JTextField y1Text;
+    private JTextField y2Text;
 
     public SmardtGUI()
     {
@@ -17,7 +21,10 @@ public class SmardtGUI
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
-                double x1=12.2, x2=26, y1=11, y2=6;
+                double x1=Double.parseDouble(x1Text.getText()),
+                        x2=Double.parseDouble(x2Text.getText()),
+                        y1=Double.parseDouble(y1Text.getText()),
+                        y2=Double.parseDouble(y2Text.getText());
                 double DewPoint = Double.parseDouble(insertText.getText());
                 double m = (y2-y1)/(x2-x1);
                 if (DewPoint < x1)
