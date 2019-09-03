@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="smardt:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/smardt_jar</output-path>
+    <root id="archive" name="smardt.jar">
+      <element id="module-output" name="smardt" />
+    </root>
+  </artifact>
+</component>
