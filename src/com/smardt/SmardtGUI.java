@@ -2,10 +2,12 @@ package com.smardt;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class SmardtGUI
 {
-    private JPanel panelMain;
+    public JPanel panelMain;
     private JTextField insertText;
     private JButton button;
     private JTextField displayText;
@@ -13,9 +15,22 @@ public class SmardtGUI
     private JTextField x2Text;
     private JTextField y1Text;
     private JTextField y2Text;
+    private JButton resetButton;
 
     public SmardtGUI()
     {
+        resetButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent)
+            {
+                x1Text.setText("12.2");
+                x2Text.setText("26");
+                y1Text.setText("11");
+                y2Text.setText("6");
+            }
+        });
+
         button.addActionListener(new ActionListener()
         {
             @Override
@@ -35,14 +50,65 @@ public class SmardtGUI
                 displayText.setText(SetPoint + "°C");
             }
         });
-    }
 
-    public static void main(String[] args)
-    {
-        JFrame frame = new JFrame("SmardtGUI");
-        frame.setContentPane(new SmardtGUI() .panelMain);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        x1Text.addKeyListener(new KeyAdapter()
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+                super.keyTyped(e);
+                char vChar = e.getKeyChar();
+                if (Character.isLetter(vChar) || (vChar == KeyEvent.VK_BACK_SPACE) || (vChar == KeyEvent.VK_DELETE))
+                    e.consume();
+            }
+        });
+
+        x2Text.addKeyListener(new KeyAdapter()
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+                super.keyTyped(e);
+                char vChar = e.getKeyChar();
+                if (Character.isLetter(vChar) || (vChar == KeyEvent.VK_BACK_SPACE) || (vChar == KeyEvent.VK_DELETE))
+                    e.consume();
+            }
+        });
+
+        y1Text.addKeyListener(new KeyAdapter()
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+                super.keyTyped(e);
+                char vChar = e.getKeyChar();
+                if (Character.isLetter(vChar) || (vChar == KeyEvent.VK_BACK_SPACE) || (vChar == KeyEvent.VK_DELETE))
+                    e.consume();
+            }
+        });
+
+        y2Text.addKeyListener(new KeyAdapter()
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+                super.keyTyped(e);
+                char vChar = e.getKeyChar();
+                if (Character.isLetter(vChar) || (vChar == KeyEvent.VK_BACK_SPACE) || (vChar == KeyEvent.VK_DELETE))
+                    e.consume();
+            }
+        });
+
+        insertText.addKeyListener(new KeyAdapter()
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+                super.keyTyped(e);
+                char vChar = e.getKeyChar();
+                if (Character.isLetter(vChar) || (vChar == KeyEvent.VK_BACK_SPACE) || (vChar == KeyEvent.VK_DELETE))
+                    e.consume();
+            }
+        });
     }
 }
